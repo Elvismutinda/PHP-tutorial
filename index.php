@@ -53,11 +53,17 @@
     //     echo '<br />'; //creates a new line after every print
     //     i++;
     // } //while structure
-    $names = [
-        ['first' => 'Neville','second' => 'Kalunda','third' => 'Mwangangi','fourth' => 'Musyoka'],
-        ['first' => 'Taylor','second' => 'Omondi','third' => 'Odhiambo','fourth' => 'Mjaka'],
-    ];
-
+    // $names = [
+    //     ['first' => 'Neville','second' => 'Kalunda','third' => 'Mwangangi','fourth' => 'Musyoka'],
+    //     ['first' => 'Taylor','second' => 'Omondi','third' => 'Odhiambo','fourth' => 'Mjaka'],
+    // ];
+    // function sayhello(){
+    //     $jina = 'Neville';
+    //     echo $jina;
+    // };
+    //include('next.php'); //includes the file but any other function will still run
+    require('next.php'); //includes the file and any other function cannot run without the file
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,12 +77,12 @@
     <!-- <h1> <?php echo 'Hello world'; ?> </h1> -->
     <div>
     <Ul>
-        <?php foreach($names as $name) { ?>
+        <!-- <?php foreach($names as $name) { ?>
         <h2><?php echo $name['first'];?></h2>
         <h2><?php echo $name['second'];?></h2>
         <h2><?php echo $name['third'];?></h2>
         <h2><?php echo $name['fourth'];?></h2>
-        <?php } ?>
+        <?php } ?> -->
     </ol>
     
 </div>
