@@ -54,8 +54,8 @@
     //     i++;
     // } //while structure
     $names = [
-        ['first' => 'Neville','second' => 'Kalunda','third' => 'Mwangangi'],
-        ['first' => 'Taylor','second' => 'Omondi','third' => 'Odhiambo'],
+        ['first' => 'Neville','second' => 'Kalunda','third' => 'Mwangangi','fourth' => 'Musyoka'],
+        ['first' => 'Taylor','second' => 'Omondi','third' => 'Odhiambo','fourth' => 'Mjaka'],
     ];
 
 ?>
@@ -75,6 +75,7 @@
         <h2><?php echo $name['first'];?></h2>
         <h2><?php echo $name['second'];?></h2>
         <h2><?php echo $name['third'];?></h2>
+        <h2><?php echo $name['fourth'];?></h2>
         <?php } ?>
     </ol>
     
