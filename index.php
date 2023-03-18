@@ -74,7 +74,7 @@
     <title>My first Html file</title>
 </head>
 <body>
-    <!-- <h1> <?php echo 'Hello world'; ?> </h1> -->
+    <!-- <h1> <?php echo 'Hello world'; ?> </h1>
     <div>
     <ul>
         <!-- <?php foreach($names as $name) { ?>
@@ -83,7 +83,8 @@
         <h2><?php echo $name['third'];?></h2>
         <h2><?php echo $name['fourth'];?></h2>
         <?php } ?> -->
-    </ul>
+    </ul> -->
+    
     
 </div>
 </body>
