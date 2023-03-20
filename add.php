@@ -1,6 +1,9 @@
 <?php 
+
+include('db_connect.php');
+
 $errors = array('emal' => '','number' => '','ae' => '','edu' => '', 'schol' => '');
-$email = $educ = $schoo = '';
+$emai = $educ = $schoo = '';
 $nos = 2547;
 $ag = 0;
 
@@ -9,8 +12,8 @@ if(isset($_POST['submit'])){
        $errors['emal'] = 'An email is required <br />';
     }
     else{
-        $email = $_POST['email'];
-        if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        $emai = $_POST['email'];
+        if(!filter_var($emai,FILTER_VALIDATE_EMAIL)){
             $errors['emal'] = 'email must be a valid email adress';
         }
     }
@@ -53,8 +56,23 @@ if(isset($_POST['submit'])){
     if(array_filter($errors)){
         // echo 'errors in the form';
     } else {
-        // echo 'form is valid';
-        header('Location : index.php');
+        //prevent sql injections
+        $emai = mysqli_real_escape_string($conn,$_POST['email']);
+        $educ = mysqli_real_escape_string($conn,$_POST['education']);
+        $schoo = mysqli_real_escape_string($conn,$_POST['school']);
+         
+        //create new variable for adding variable
+        $sql = "INSERT INTO info(email, age, phonenumber, education, schools) VALUES ('$emai','$ag','$nos','$educ','$schoo')";
+
+        //save to db and check
+        if(mysqli_query($conn,$sql)){
+            header("url = connect.php");
+        } else{
+            echo 'query error: '. mysqli_error($conn);
+        }
+
+        
+       
     }
 }
 
@@ -75,7 +93,7 @@ if(isset($_POST['submit'])){
     <form action="add.php" method="POST" style="display: flex; flex-direction: column; margin: 50px 20%;">
 
         <label for="email" style="margin:20px,0;">Your email: </label>
-        <input type="text" name="email" value ="<?php echo htmlspecialchars($email); ?>" >
+        <input type="text" name="email" value ="<?php echo htmlspecialchars($emai); ?>" >
         <div class="errormessage" style="color:red; margin:20px,0;"><?php echo($errors['emal']);  ?></div>
 
         <label for="phone number" style="margin:20px,0;">Your Phone number: </label>

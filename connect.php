@@ -1,12 +1,6 @@
 <?php 
 
-//connect to database
-$conn = mysqli_connect('localhost','neville','1234','datatutorial');
-
-//check the connection
-if(!$conn){
-    echo 'connection failed' . mysqli_connect_error();
-}
+include('db_connect.php');
 
 //write query for all data
 
@@ -43,13 +37,13 @@ mysqli_close($conn);
     <h4>People in network</h4>
     <div>
         <div>
-            <?php foreach($data as $dat){ ?>
+            <?php foreach($data as $dat): ?>
                     <div>
                         <h6> <?php echo htmlspecialchars($dat['email']); ?> </h6>
                         <h6> <?php echo htmlspecialchars($dat['age']); ?> </h6>
                         <h6> <?php echo htmlspecialchars($dat['education']); ?> </h6>
                     </div>
-            <?php } ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </body>
