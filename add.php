@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
         if(mysqli_query($conn,$sql)){
             header("url = connect.php");
         } else{
-            echo 'query error: '. mysqli_error($conn);
+            echo 'query error: '.mysqli_error($conn);
         }
 
         

@@ -1,4 +1,7 @@
 <?php
+    //CHEAT SHEET
+
+
     // echo 'hello, world';
     // $name = 'Neville';
     // echo $name; //print out the variable
