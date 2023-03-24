@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
         $errors['number'] = 'A phone number is required <br />';
     }
     else{
-        $nos = $_POST['phonenumber'];
+        $nos =  $_POST['phonenumber'];
         if(!filter_var($nos,FILTER_VALIDATE_INT)){
             $errors['number'] = 'phonenumber must be valid';
         }
