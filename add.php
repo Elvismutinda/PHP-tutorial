@@ -1,6 +1,7 @@
 <?php 
 
 include('db_connect.php');
+include('template/overall.php');
 
 $errors = array('emal' => '','number' => '','ae' => '','edu' => '', 'schol' => '');
 $emai = $educ = $schoo = '';
