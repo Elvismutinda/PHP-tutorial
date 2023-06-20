@@ -13,7 +13,7 @@ $result = mysqli_query($conn, $sql);
 $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
 //print_r($data);
 
-print_r(explode(',',$data[0]['schools']));
+//print_r(explode(',',$data[0]['schools']));
 
 //free result from memory
 mysqli_free_result($result);
@@ -32,18 +32,33 @@ mysqli_close($conn);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Database sync</title>
+    <style>
+        table, tr,td,th{
+            border: 1px solid black;
+        }
+</style>
 </head>
 <body>
     <h4>People in network</h4>
     <div>
         <div>
-            <?php foreach($data as $dat): ?>
-                    <div>
-                        <h6> <?php echo htmlspecialchars($dat['email']); ?> </h6>
-                        <h6> <?php echo htmlspecialchars($dat['age']); ?> </h6>
-                        <h6> <?php echo htmlspecialchars($dat['education']); ?> </h6>
-                    </div>
-            <?php endforeach; ?>
+            <table>
+                <tr>
+                     <th>email</th>
+                     <th>age</th>
+                     <th>education</th>
+                </tr>
+
+                <?php foreach($data as $dat): ?>
+                        <div>
+                            <tr>
+                                <td> <h6> <?php echo htmlspecialchars($dat['email']); ?> </h6></td> 
+                                <td> <h6> <?php echo htmlspecialchars($dat['age']); ?> </h6> </td> 
+                                <td> <h6> <?php echo htmlspecialchars($dat['education']); ?> </h6> </td> 
+                            </tr> 
+                        </div>
+                <?php endforeach; ?>
+            </table>
         </div>
     </div>
 </body>

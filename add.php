@@ -1,6 +1,7 @@
 <?php 
 
 include('db_connect.php');
+include('template/overall.php');
 
 $errors = array('emal' => '','number' => '','ae' => '','edu' => '', 'schol' => '');
 $emai = $educ = $schoo = '';
@@ -21,7 +22,7 @@ if(isset($_POST['submit'])){
         $errors['number'] = 'A phone number is required <br />';
     }
     else{
-        $nos = $_POST['phonenumber'];
+        $nos =  $_POST['phonenumber'];
         if(!filter_var($nos,FILTER_VALIDATE_INT)){
             $errors['number'] = 'phonenumber must be valid';
         }
@@ -66,7 +67,7 @@ if(isset($_POST['submit'])){
 
         //save to db and check
         if(mysqli_query($conn,$sql)){
-            header("url = connect.php");
+            header("location:connect.php");
         } else{
             echo 'query error: '.mysqli_error($conn);
         }
